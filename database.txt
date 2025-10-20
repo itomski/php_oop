@@ -1,0 +1,11 @@
+Domänenmodell: Daten die gespeichert/verwaltet werden müssen
+
+    Kunde       -       Buchung     -    Fahrzeug
+    vorname
+    geburtsDatum
+
+physisches Modell: Wie wird alles in der Datenbank abgelegt (Normalisierung)
+
+    kunden = {vorname, geburts_datum}
+
+Objektmodell: Welche Klassen brauche ich für die Daten und für die restliche Logik (Methoden)

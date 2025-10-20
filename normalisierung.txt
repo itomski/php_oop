@@ -1,0 +1,48 @@
+
+K-Nr,   Name,           Straße,         Ort,                Start,      Ende,       Fahrzeug   
+1       Peter Parker    Musterweg 22    23456 Musterstedt   22.10.2025  25.10.25    HH-AB123 Ford Focus
+
+1NF: atomar (nicht weiter zerlegbar) machen
+
+K-Nr,   Vorname,    Nachname,   Straße,     Nr    PLZ,      Ort,          Start,      Ende,       Kenzeichen,   Fahrzeug   
+1       Peter       Parker      Musterweg   22    23456     Musterstedt   22.10.2025  25.10.25    HH-AB123      Ford Focus
+
+
+
+2NF: muss in 1NF sein, Nichtschlüssel Attribute müssen funktionall von Schlüsseln abhängen
+
+kunden = {id, vorname, nachname, strasse, nr, plz, ort}
+K-Nr,   Vorname,    Nachname,   Straße,     Nr    PLZ,      Ort,
+1       Peter       Parker      Musterweg   22    23456     Musterstedt
+2       Peter       Müller      Musterweg   27    23456     Musterstedt
+
+fahrzeuge = {id, kennzeichen, marke, modell}
+F-Nr,   Kenzeichen,   Marke,    Modell
+100     HH-AB123      Ford      Focus
+101     HH-AB123      Ford      Focus
+
+buchungen = {id, start, ende, k_id, f_id}
+B-Nr,   Start,      Ende,       Kunde,  Fahrzeug
+1       22.10.25    25.10.25    1       100
+2       15.11.25    17.11.25    2       101
+
+Verbindungen zwischen Tabellen werden durch Fremdschlüsselverbindungen realisiert
+Fremdschlüssel: Primärschlüssel einer Tabelle, der in einer anderen Tabelle als Verweis genutzt wird
+Eventuell muss noch ein Schlüssel eingeführt werden
+
+
+
+3NF: muss in 2NF sein, alle Nichtschlüsseln müssen transitiv vom Schlüssel abhängen
+
+kunden
+K-Nr,   Vorname,    Nachname,   Straße,     Nr    PLZ
+1       Peter       Parker      Musterweg   22    23456
+2       Peter       Müller      Musterweg   27    23456
+
+PLZ,      Ort,
+23456     Musterstedt
+
+
+Relation: Tabelle
+Tupel, Datensätze: Zeile
+Attribute: Spalte/Zelle (in den Zellen liegen Werte)
