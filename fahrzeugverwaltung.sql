@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Erstellungszeit: 20. Okt 2025 um 09:49
+-- Erstellungszeit: 21. Okt 2025 um 06:55
 -- Server-Version: 9.4.0
 -- PHP-Version: 8.3.26
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `test`
+-- Datenbank: `fahrzeugverwaltung`
 --
 
 -- --------------------------------------------------------
@@ -73,9 +73,9 @@ CREATE TABLE `kunden` (
   `id` int UNSIGNED NOT NULL,
   `vorname` varchar(50) NOT NULL,
   `nachname` varchar(50) NOT NULL,
-  `strasse` varchar(50) NOT NULL,
-  `nr` varchar(10) NOT NULL,
-  `plz` varchar(5) NOT NULL
+  `strasse` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `nr` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `plz` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -84,7 +84,8 @@ CREATE TABLE `kunden` (
 
 INSERT INTO `kunden` (`id`, `vorname`, `nachname`, `strasse`, `nr`, `plz`) VALUES
 (1, 'Peter', 'Parker', 'Musterweg', '22', '23456'),
-(2, 'Bruce', 'Banner', 'Musterweg', '21', '23456');
+(2, 'Bruce', 'Banner', 'Musterweg', '21', '22547'),
+(5, 'Steve', 'Rogers', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,10 @@ CREATE TABLE `postleitzahlen` (
 --
 
 INSERT INTO `postleitzahlen` (`plz`, `ort`) VALUES
-('23456', 'Musterstedt');
+('22547', 'Hamburg'),
+('23456', 'Musterstedt'),
+('34567', 'Musterwald'),
+('89012', 'Musterdeich');
 
 --
 -- Indizes der exportierten Tabellen
@@ -155,7 +159,7 @@ ALTER TABLE `fahrzeuge`
 -- AUTO_INCREMENT für Tabelle `kunden`
 --
 ALTER TABLE `kunden`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints der exportierten Tabellen
