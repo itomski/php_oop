@@ -1,5 +1,9 @@
 <?php
 
+namespace Helper;
+
+use \PDO;
+
 class DbUtility {
 
     private static $instance;

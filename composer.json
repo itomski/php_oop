@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "psr-0": {
+            "Entity": "./classes",
+            "Repository": "./classes",
+            "Helper": "./classes",
+            "Controller": "./classes"
+        }
+    },
+    "require": {
+        "smarty/smarty": "5.*"
+    }
+}

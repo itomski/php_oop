@@ -1,5 +1,10 @@
 <?php
 
+namespace Repository;
+
+use \Entity\Kunde;
+use \Helper\DbUtility;
+
 class KundeRepository extends AbstractRepository {
 
     private static $instance = null;
@@ -7,7 +12,7 @@ class KundeRepository extends AbstractRepository {
     private function __construct()
     {
         $this->dbh = DbUtility::getInstance()->getConnection();
-        $this->entity = 'Kunde';
+        $this->entity = 'Entity\Kunde';
         $this->table = 'kunden';
     }
 

@@ -10,6 +10,13 @@ services:
       - ${PWD}:/var/www/html/
     command: >
       bash -c "docker-php-ext-install pdo pdo_mysql && apache2-foreground"
+    
+  composer:
+    image: composer:latest
+    container_name: composer_installer
+    command: ["composer", "install"]
+    volumes:
+      - .:/app
 
   mysql:
     image: mysql:latest

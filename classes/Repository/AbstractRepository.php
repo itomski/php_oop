@@ -1,5 +1,10 @@
 <?php
 
+namespace Repository;
+
+use \PDO;
+use \Entity\Kunde;
+
 class AbstractRepository {
 
     protected $dbh;
@@ -30,6 +35,7 @@ class AbstractRepository {
     protected function findMany(string $sql, array $data): array { 
         $stmt = $this->dbh->prepare($sql);
         $stmt->execute($data);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, $this->entity);
         return $stmt->fetchAll();
     }
 
